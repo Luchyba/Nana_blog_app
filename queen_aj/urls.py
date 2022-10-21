@@ -16,7 +16,7 @@ Including another URLconf
 from django import http
 from django.contrib import admin
 from django.http import HttpResponse
-from django.urls import path
+from django.urls import include, path
 
 def Home(request):
     return HttpResponse('home')
@@ -25,5 +25,5 @@ def Home(request):
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', Home),
+    path('', include('main.urls')),
 ]
